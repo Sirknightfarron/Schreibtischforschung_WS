@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0;
+}
+
+#inventory {
+    float: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: fit-content;
+    margin: 1rem;
+    text-align: center;
+}
+
+#h2 {
+    text-align: center;
+    font-family: fantasy;
+}
+
+#mainframe {
+    float: center;
+    height: fit-content;
+    width: 80%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border: 2px silver;
+    border-radius: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+#imageholder {
+    vertical-align: center;
+    margin: 1rem auto;
+}
+
+.items {
+    border: darkblue 2px solid;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: lightgoldenrodyellow;
+    margin-bottom: 1rem ;
+}
