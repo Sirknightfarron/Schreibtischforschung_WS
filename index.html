@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=20rem, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css">
     <!-- development version, includes helpful console warnings -->
     <script src="https://unpkg.com/vue@next" defer></script>
@@ -10,7 +10,7 @@
 
     <title>Werkstück - Schreibtischforschung</title>
 </head>
-<header><h1>Schreibtischfortschung Werkstück</h1></header>
+<header><h1>Schreibtischforschung Werkstück</h1></header>
 <body>
     <div id="werkstueck">
         <div id="mainframe">
@@ -24,12 +24,13 @@
         <!-- Rechtsseitiges Inventar, evtl zum ausklappen, wo schon geklickte Elemente vorhanden sind -->
         <div id="inventory">
             <h2>Inventar - Bereits gefundene Storys</h2>
-            <div id="inv-box">
-                <ul class="items" v-for="item in inventory">
-                    <li class="item"> <h3>{{ item.was }}</h3>
-                    <h4> {{ item.text }} </h4> </li>
-                </ul>
-            </div>
+            <ul class="items" v-for="item in inventory">
+                <li v-if="inventoryEmpty === true"> Noch nichts gefunden </li>
+                <li class="item">
+                    <img class="item-icon" :src="item.image" alt=""> 
+                    <h3 class="item-title">{{ item.was }}</h3>
+                    <h4 class="item-description"> {{ item.text }} </h4> </li>
+            </ul>
         </div>
     </div>
 </body>
