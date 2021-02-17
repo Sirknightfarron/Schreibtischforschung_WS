@@ -15,26 +15,24 @@
 <body>
     <div id="werkstueck">
         <div id="mainframe">
-            <img src="/images/Schreibtisch_Test_Bild.jpeg" alt="" usemap="#schreibtisch" >
+            <img class="schreibtisch-bild" src="/images/Schreibtisch_Test_Bild.jpeg" alt="" usemap="#schreibtisch" >
             <map name="schreibtisch">
                 <area shape="circle" coords="450, 678, 50"  @click="addItem('kaffetasse')">
                 <area shape="circle" coords="360, 630, 20" @click="addItem('minzmönch')">
+                <area shape="poly" coords="675,187, 736,156, 800,245, 735,295, 730,292" @click="addItem('raspberrypi')">
+                <area shape="circle" coords="713,361, 50" @click="addItem('honeypot')">
+                <area shape="poly" coords="418,440, 770,408, 790,555, 428,590" @click="addItem('symbolfelder')">
+                <area shape="" coords="" href="" alt="">
+
             </map>
         </div>
         
         <!-- Inventar, evtl zum ausklappen, wo schon geklickte Elemente vorhanden sind -->
         <div id="inventory">
-            <h2 @click="toggleInv">Inventar - Bereits gefundene Storys</h2>
+            <h2>Inventar - Bereits gefundene Storys - {{ inventory.length }}</h2>
             <ul id="inv-items" v-for="item in inventory">
                 <inventory-item v-bind:item="item"></inventory-item>
             </ul>
-<!--
-                <li class="found-item">
-                    <img class="item-icon" :src="item.image" alt=""> 
-                    <h3 class="item-title">{{ item.was }}</h3>
-                    <h4 class="item-description"> {{ item.text }} </h4> </li>
--->
-            
         </div>
     </div>
 </body>
