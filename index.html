@@ -6,6 +6,7 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
+
     
 
     <title>Werkstück - Schreibtischforschung</title>
@@ -21,18 +22,20 @@
             </map>
         </div>
         
-        <!-- Rechtsseitiges Inventar, evtl zum ausklappen, wo schon geklickte Elemente vorhanden sind -->
+        <!-- Inventar, evtl zum ausklappen, wo schon geklickte Elemente vorhanden sind -->
         <div id="inventory">
-            <h2>Inventar - Bereits gefundene Storys</h2>
-            <ul class="items" v-for="item in inventory">
-                <li v-if="inventoryEmpty === true"> Noch nichts gefunden </li>
-                <li class="item">
+            <h2 @click="toggleInv">Inventar - Bereits gefundene Storys</h2>
+            <ul id="inv-items" v-for="item in inventory">
+                <inventory-item v-bind:item="item"></inventory-item>
+            </ul>
+<!--
+                <li class="found-item">
                     <img class="item-icon" :src="item.image" alt=""> 
                     <h3 class="item-title">{{ item.was }}</h3>
                     <h4 class="item-description"> {{ item.text }} </h4> </li>
-            </ul>
+-->
+            
         </div>
     </div>
 </body>
-
 </html>

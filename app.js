@@ -1,21 +1,33 @@
+let uniqueElementsBy = (arr, fn) =>
+    arr.reduce((acc, v) => {
+        if(!acc.some(x => fn(v, x))) acc.push(v);
+        return acc;
+    }, []);
+
 
 const app = Vue.createApp({
     data() {
         return {
             inventory: [],
+            invVisible: false,
         }
     },
-    computed: {},
+    computed: {
+        invEmpty () {
+            return this.inventory.length == 0;
+        },
+    },
     methods: {
         testclick () {
             console.log("Hit");
             alert("Kaffetasse click");
         },
-        inventoryEmpty () {
-            if(this.inventory.length == 0) {
-                return true;
-            }
-            return false;
+        toggleInv () {
+            this.invVisible = !this.invVisible
+        },
+        removeDups() {
+            console.log("I know")
+            this.inventory = uniqueElementsBy(this.inventory, (a, b) => a.id == b.id);
         },
         addItem(item) {
             switch (item) {
@@ -39,11 +51,23 @@ const app = Vue.createApp({
                     })
                     break;
                 default:
-                    alert("Do i no dis?")
+                    alert("Do i no dis? Error: No " + item + " in switch case")
                     break;
             }
-        }
+            this.removeDups();
+        }   
     },
+});
+
+app.component('inventory-item',{
+    props: ['item'],
+    template:`
+        <li class="inv-item">
+            <img class="item-icon" :src="item.image" alt="">
+            <h3>{{ item.was }}</h3>
+            <h4>{{ item.text }}</h4>
+        </li>
+    `
 });
 
 app.mount('#werkstueck');

@@ -27,22 +27,17 @@ body {
     flex-shrink: 5;
 }
 
-#inv-box {
-    grid-gap: 10px;
-    padding: 10px;
-}
-
-#inv-box ul {
+#inventory ul {
     list-style: none;
 }
 
-#item-icon {
+#inventory item-icon {
     width: 150px;
     height: 150px;
     float: left;
 }
 
-#item-title {
+#inventory item-title {
     float: inline-end;
 }
 
@@ -73,7 +68,7 @@ body {
     align-self: stretch;
 }
 
-.items {
+#inventory .inv-item {
     border: #111344 2px solid;
     padding: 1rem;
     border-radius: 1rem;
