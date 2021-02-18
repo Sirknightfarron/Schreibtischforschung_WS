@@ -7,8 +7,6 @@
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
 
-    
-
     <title>Werkstück - Schreibtischforschung</title>
 </head>
 <header><h1>Schreibtischforschung Werkstück</h1></header>
@@ -21,7 +19,7 @@
                 <area shape="circle" coords="360, 630, 20" @click="addItem('minzmönch')">
                 <area shape="poly" coords="675,187, 736,156, 800,245, 735,295, 730,292" @click="addItem('raspberrypi')">
                 <area shape="circle" coords="713,361, 50" @click="addItem('honeypot')">
-                <area shape="poly" coords="418,440, 770,408, 790,555, 428,590" @click="addItem('symbolfelder')">
+                <area shape="poly" coords="418,440, 770,408, 790,555, 428,590" @click.prevent="addItem('symbolfelder')">
                 <area shape="" coords="" href="" alt="">
 
             </map>
