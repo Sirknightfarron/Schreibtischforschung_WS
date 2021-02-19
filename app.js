@@ -1,7 +1,7 @@
 let uniqueElementsBy = (arr, fn) =>
     arr.reduce((acc, v) => {
         if(!acc.some(x => fn(v, x))) acc.push(v);
-        return acc;
+            return acc;
     }, []);
 
 
@@ -9,7 +9,7 @@ const app = Vue.createApp({
     data() {
         return {
             inventory: [],
-            isVisible: false,
+            invVisible: false,
         }
     },
     computed: {
@@ -23,10 +23,11 @@ const app = Vue.createApp({
             alert("Kaffetasse click");
         },
         toggleInv () {
-            this.isVisible = !this.isVisible;
+            this.invVisible = !this.invVisible
+            console.log('Yo')
+            console.log(this.invVisible)
         },
         removeDups() {
-            console.log("I know")
             this.inventory = uniqueElementsBy(this.inventory, (a, b) => a.id == b.id);
         },
         addItem(item) {
@@ -103,7 +104,6 @@ const app = Vue.createApp({
 app.component('inventory-item',{
     props: [
         'item',
-        'invVisible'
     ],
     template:`
         <li class="inv-item">

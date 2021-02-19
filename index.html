@@ -27,9 +27,10 @@
         
         <!-- Inventar, evtl zum ausklappen, wo schon geklickte Elemente vorhanden sind -->
         <div id="inventory">
-            <h2>Inventar - Bereits gefundene Storys - {{ inventory.length }}</h2>
-            <ul id="inv-items" v-for="item in inventory">
-                <inventory-item v-bind:item="item"></inventory-item>
+            <h2>Inventar - Bereits gefundene Storys - {{ inventory.length }} 
+                <button class="inv-btn" @click="toggleInv">{{ (invVisible ? 'Hide' : 'Show') }}</button></h2>
+            <ul v-if="invVisible" id="inv-items" v-for="item in inventory">
+                <inventory-item :item="item" ></inventory-item>
             </ul>
         </div>
     </div>
