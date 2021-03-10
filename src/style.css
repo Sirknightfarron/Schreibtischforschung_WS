@@ -70,6 +70,7 @@ body {
 #werkstueck .schreibtisch-bild {
     align-self: center;
     position: absolute;
+    margin-top: 6rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -100,4 +101,5 @@ body {
     height: 1.5rem;
     text-align: center;
     background-color: darken( #5bba6f, 15%);
+    border: 1px #82667f solid;
 }

@@ -86,6 +86,78 @@ const app = Vue.createApp({
                     })
                     this.playVoice(this.inventory[0].voice);
                     break;
+                case "mictower":
+                    this.inventory.unshift({
+                        id: "mictower",
+                        was: "Der Mictower",
+                        text: ``,
+                        image: "/images/Mictower_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "kupfermeer":
+                    this.inventory.unshift({
+                        id: "kupfermeer",
+                        was: "Das Kupfermeer",
+                        text: `Es ist eigentlich ein großer See aus Kupfer`,
+                        image: "/images/Kupfermeer_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "wuerfel2":
+                    this.inventory.unshift({
+                        id: "wuerfel2",
+                        was: "Ein Ominöser Händler",
+                        text: `Ein Händler dessen Waren genauso seltsam sind, wie das Geschöpf selbst`,
+                        image: "/images/Wuerfel_2_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "wuerfel6":
+                    this.inventory.unshift({
+                        id: "wuerfel6",
+                        was: "Himbeer Town",
+                        text: ``,
+                        image: "/images/Wuerfel_6_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "soundmassiv":
+                    this.inventory.unshift({
+                        id: "soundmassiv",
+                        was: "",
+                        text: ``,
+                        image: "/images/Soundmassiv_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "messerschneide":
+                    this.inventory.unshift({
+                        id: "messerschneide",
+                        was: "",
+                        text: ``,
+                        image: "/images/Messerschneide_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "frenchpress":
+                    this.inventory.unshift({
+                        id: "frenchpress",
+                        was: "",
+                        text: ``,
+                        image: "/images/Frenchpress_icon.png",
+                        voice: ""
+                    })
+                    break;
+                case "controller":
+                    this.inventory.unshift({
+                        id: "controller",
+                        was: "",
+                        text: ``,
+                        image: "/images/Controller_icon.png",
+                        voice: ""
+                    })
+                    break;
                 default:
                     alert("Do i no dis? Error: No " + item + " in switch case")
                     break;

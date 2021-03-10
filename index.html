@@ -14,14 +14,21 @@
     <div id="werkstueck">
         <div id="mainframe">
             <img class="schreibtisch-bild" src="/images/Schreibtisch_Test_Bild.jpeg" alt="" usemap="#schreibtisch" >
+            <!--Iwann nochmal in schön mit vue template-->
             <map name="schreibtisch">
-                <area shape="circle" coords="450, 678, 50"  @click="addItem('kaffetasse')">
-                <area shape="circle" coords="360, 630, 20" @click="addItem('minzmönch')">
-                <area shape="poly" coords="675,187, 736,156, 800,245, 735,295, 730,292" @click="addItem('raspberrypi')">
-                <area shape="circle" coords="713,361, 50" @click="addItem('honeypot')">
-                <area shape="poly" coords="418,440, 770,408, 790,555, 428,590" @click.prevent="addItem('symbolfelder')">
-                <area shape="" coords="" href="" alt="">
-
+                <area shape="circle" coords="450, 678, 50"                                                                                      @click="addItem('kaffetasse')">
+                <area shape="circle" coords="360, 630, 20"                                                                                      @click="addItem('minzmönch')">
+                <area shape="poly"   coords="675,187, 736,156, 800,245, 735,295, 730,292"                                                       @click="addItem('raspberrypi')">
+                <area shape="circle" coords="713,361, 50"                                                                                       @click="addItem('honeypot')">
+                <area shape="poly"   coords="418,440, 770,408, 790,555, 428,590"                                                                @click.prevent="addItem('symbolfelder')">
+                <area shape="poly"   coords="0,645, 41,661, 27,609, 52,598, 77,645, 131,590, 203,623, 207,652, 149,722, 81,690, 65,726, 92,767" @click="addItem('mictower')">
+                <area shape="circle" coords="262,412, 40"                                                                                       @click="addItem('kupfermeer')">
+                <area shape="circle" coords="498,411, 12"                                                                                       @click="addItem('wuerfel2')">
+                <area shape="circle" coords="605,399, 11"                                                                                       @click="addItem('wuerfel6')">
+                <area shape="poly"   coords="338,296, 507,293, 508,359, 341,358"                                                                @click="addItem('soundmassiv')">
+                <area shape="poly"   coords="4,491, 84,517, 162,563, 181,591, 165,611, 140,587, 71,549"                                         @click="addItem('messerschneide')">
+                <area shape="poly"   coords="843,598, 794,607, 777,649, 816,703, 942,743, 963,766, 981,751, 962,724, 971,654, 918,607"          @click="addItem('frenchpress')">
+                <area shape="poly"   coords="301,444, 221,524, 239,570, 275,607, 303,586, 294,555, 333,516, 374,521, 382,490, 347,462"          @click="addItem('controller')">
             </map>
         </div>
         
@@ -30,7 +37,7 @@
             <h2>Inventar - Bereits gefundene Storys - {{ inventory.length }} 
                 <button class="inv-btn" @click="toggleInv">{{ (invVisible ? 'Hide' : 'Show') }}</button></h2>
             <ul v-if="invVisible" id="inv-items" v-for="item in inventory">
-                <inventory-item :item="item" ></inventory-item>
+                <inventory-item :item="item"></inventory-item>
             </ul>
         </div>
     </div>
