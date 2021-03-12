@@ -38,6 +38,7 @@ body {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    display: inline-flex;
 }
 
 #inventory .inv-item .item-icon {
@@ -60,8 +61,8 @@ body {
 
 #werkstueck {
     width: 100%;
-    display: flex;
-    flex-flow: column wrap;
+    display: inline-flex;
+    flex-flow: column nowrap;
     align-content: flex-start;
     align-items: center;
     justify-content: center;
@@ -70,7 +71,7 @@ body {
 #werkstueck .schreibtisch-bild {
     align-self: center;
     position: absolute;
-    margin-top: 6rem;
+    margin-top: 8%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -94,6 +95,7 @@ body {
     border-radius: 1rem;
     background-color: #faf0e6;
     margin: 1rem ;
+
 }
 
 #inventory .inv-btn {
@@ -102,4 +104,27 @@ body {
     text-align: center;
     background-color: darken( #5bba6f, 15%);
     border: 1px #82667f solid;
+}
+
+#inventory .inv-item img{
+    order: -1;
+}
+
+#inventory .inv-item h3 {
+    order: -2;
+}
+
+#inventory .inv-item audio{
+    order: 5;
+    width: 20%
+}
+
+#inventory .inv-item h4{
+    order: 1;
+    width: 50%
+}
+
+#werkstueck #inventory {
+    display: flex;
+    flex-flow: nowrap column;
 }
