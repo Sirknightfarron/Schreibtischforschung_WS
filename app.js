@@ -10,6 +10,7 @@ const app = Vue.createApp({
         return {
             inventory: [],
             invVisible: false,
+            showModal: true,
         }
     },
     computed: {
@@ -84,13 +85,14 @@ const app = Vue.createApp({
                         image: "/images/Symbolfelder_icon.png",
                         voice: "/voices/symbolfelder_voice.mp3"
                     })
-                    this.playVoice(this.inventory[0].voice);
+                    // this.playVoice(this.inventory[0].voice);
                     break;
                 case "mictower":
                     this.inventory.unshift({
                         id: "mictower",
                         was: "Der Mictower",
-                        text: ``,
+                        text: `Der Ort um einmal seine Stellung in der Welt zu prüfen. 
+                                Niemand, der den Turm bisher betreten hat, hat die Spitze erklimmen können`,
                         image: "/images/Mictower_icon.png",
                         voice: ""
                     })
@@ -99,7 +101,12 @@ const app = Vue.createApp({
                     this.inventory.unshift({
                         id: "kupfermeer",
                         was: "Das Kupfermeer",
-                        text: `Es ist eigentlich ein großer See aus Kupfer`,
+                        text: `Es ist eigentlich ein großer See aus Kupfer. Der Ort an dem du ürsprünglich aufgewacht bist.
+                            Hier in der Nähe siehst du einige Merkwürdige Dinge, die du so noch nie gesehen hast. 
+                            Im Süden siehst du ein Riesiges, scheinbar mit Wasserdampf betriebenes Gebirge, weiter Östlich davon
+                            scheint ein riesiges Feld zu liegen. Im Nordosten des Sees ist ein Weiterer Großer Berg und einige dubios wirkende Gestalten
+                            mit Mänteln, die schwer bepackt zu sein scheinen.
+                        `,
                         image: "/images/Kupfermeer_icon.png",
                         voice: ""
                     })
@@ -108,7 +115,8 @@ const app = Vue.createApp({
                     this.inventory.unshift({
                         id: "wuerfel2",
                         was: "Ein Ominöser Händler",
-                        text: `Ein Händler dessen Waren genauso seltsam sind, wie das Geschöpf selbst`,
+                        text: `Ein Ortsansässiger Händler dessen Waren genauso seltsam sind, wie das Geschöpf selbst.
+                                Er und seine Begleiterin scheinen gerne zu Meiern, wenn es um Rabatte und die Feierabendschicht geht.`,
                         image: "/images/Wuerfel_2_icon.png",
                         voice: ""
                     })
@@ -116,8 +124,9 @@ const app = Vue.createApp({
                 case "wuerfel6":
                     this.inventory.unshift({
                         id: "wuerfel6",
-                        was: "Himbeer Town",
-                        text: ``,
+                        was: "Noch ein ominöser Händler",
+                        text: `Nieman weiß, ob die beiden Händler miteinander verwandt sind, aber eines ist sicher.
+                                Wenn du etwas brauchst, können sie es besorgen. Egal wie abstrus der Wunsch auch sein mag.`,
                         image: "/images/Wuerfel_6_icon.png",
                         voice: ""
                     })
@@ -125,8 +134,9 @@ const app = Vue.createApp({
                 case "soundmassiv":
                     this.inventory.unshift({
                         id: "soundmassiv",
-                        was: "",
-                        text: ``,
+                        was: "Das Soundmassiv",
+                        text: `Einer der größeren Berge in Scribeterra. Vor, auf und um diesem Bergmassiv werden jedes Jahr die Lautesten und besten Feiern veranstaltet. 
+                                Aufgrund der Nähe zu Himbeer Stadt und dem Lager mit den beiden Numerösen, ominösen Händlern ist die Materialbeschaffung jedes mal ein klacks`,
                         image: "/images/Soundmassiv_icon.png",
                         voice: ""
                     })
@@ -134,8 +144,9 @@ const app = Vue.createApp({
                 case "messerschneide":
                     this.inventory.unshift({
                         id: "messerschneide",
-                        was: "",
-                        text: ``,
+                        was: "Der Messerpass",
+                        text: `Der einzige Weg um zum Eingang des Mictowers zu kommen. Bewacht von dem Wohlduftenden dient dies als erster Schritt um den Turm zu erklimmen.
+                                Wer diesen weg nicht, oder nur gerade so übersteht hat im Turm wahrloch keine chance.`,
                         image: "/images/Messerschneide_icon.png",
                         voice: ""
                     })
@@ -143,8 +154,10 @@ const app = Vue.createApp({
                 case "frenchpress":
                     this.inventory.unshift({
                         id: "frenchpress",
-                        was: "",
-                        text: ``,
+                        was: "Der Vorrat",
+                        text: `Der Ursprung der dunklen Versuchung. Nicht nur die Gezeiten, sonern die Zeit selbst scheint sich nach dem
+                                Füllstand des Vorrates zu richten. Solange noch etwas drin ist geht das Leben und die Zeit wohl weiter,
+                                was danach kommt vermag nicht einmal der weise Minzmönch zu erzählen`,
                         image: "/images/Frenchpress_icon.png",
                         voice: ""
                     })
@@ -152,8 +165,9 @@ const app = Vue.createApp({
                 case "controller":
                     this.inventory.unshift({
                         id: "controller",
-                        was: "",
-                        text: ``,
+                        was: "Der Dampf Controller",
+                        text: `Nur der Mönch weiß, wie man dieses alte Dampgetriebene Relikt aus alter Zeit nutzt und wozu es gut ist.
+                                Doch er spricht nie darüber, warum dieses Gerät, welches so groß wie ein Gebirge ist hier in Scribeterra steht.`,
                         image: "/images/Controller_icon.png",
                         voice: ""
                     })
@@ -169,22 +183,31 @@ const app = Vue.createApp({
                 var audio = new Audio(path);
                 audio.play();
             }
-        }
+        },
     },
 });
+
 
 app.component('inventory-item',{
     props: [
         'item',
     ],
     template:`
-        <li class="inv-item">
-        <img class="item-icon" :src="item.image">
-        <h3>{{ item.was }}</h3>
-        <h4>{{ item.text }}</h4>
-        <audio :src="item.voice" controls="true" controlslist="nodownload "></audio>
-        </li>
+    <li class="inv-item">
+    <img class="item-icon" :src="item.image">
+    <h3>{{ item.was }}</h3>
+    <h4>{{ item.text }}</h4>
+    <audio :src="item.voice" controls="true" controlslist="nodownload "></audio>
+    </li>
     `
 });
+  
+  app.component("modal", {
+    template: "#modal-template",
+    props:[
+        'item',
+    ]
+  })
+  
 
 app.mount('#werkstueck');
